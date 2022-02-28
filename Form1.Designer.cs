@@ -48,6 +48,7 @@
             this.txtHEX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHEX.Location = new System.Drawing.Point(94, 179);
             this.txtHEX.Name = "txtHEX";
+            this.txtHEX.ReadOnly = true;
             this.txtHEX.Size = new System.Drawing.Size(264, 22);
             this.txtHEX.TabIndex = 0;
             // 
@@ -124,6 +125,7 @@
             // 
             // Iniciar_button
             // 
+            this.Iniciar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Iniciar_button.Location = new System.Drawing.Point(270, 28);
             this.Iniciar_button.Name = "Iniciar_button";
             this.Iniciar_button.Size = new System.Drawing.Size(84, 31);
@@ -134,6 +136,7 @@
             // 
             // Terminar_button
             // 
+            this.Terminar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Terminar_button.Location = new System.Drawing.Point(360, 28);
             this.Terminar_button.Name = "Terminar_button";
             this.Terminar_button.Size = new System.Drawing.Size(84, 32);
