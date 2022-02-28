@@ -143,7 +143,7 @@ namespace Conversor_Cartão
             _serialPort.Open();
             _continue = true;
 
-            readCard();
+            readCard();//
         }
     }
 }
