@@ -23,26 +23,27 @@ namespace Conversor_Cartão
         // variáveis global
         string idHEX;
         long idDEC;
-        static bool _continue;
-        static SerialPort _serialPort;
+        bool _continue;
+        SerialPort _serialPort;
 
         /* variável que armazena o nome do ficheiro
            o ficheiro será criado na pasta de inicialização "bin/debug" */
         string caminho = Application.StartupPath + "ID_Cartões.txt";
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             lblOpenClosed.Text = "Fechada";
             lblOpenClosed.ForeColor = Color.Red;
 
+            // criação da instância para a serial port
             _serialPort = new SerialPort();
 
+            // introduzir portas com e baud rate nas combo box
             PortaCom_comboBox.DataSource = SerialPort.GetPortNames();
             _serialPort.PortName = PortaCom_comboBox.Text;
+
             BaudRate_comboBox.SelectedIndex = 0;
-
             _serialPort.BaudRate = int.Parse(BaudRate_comboBox.Text);
-
 
             PortaCom_comboBox.TextChanged += (s, ev) =>
             {
@@ -53,24 +54,71 @@ namespace Conversor_Cartão
             };
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+        public void HexToDec()
         {
-            // repõe todos os campos
-            txtHEX.Text = "";
-            lblDEC.Text = "";
+            // conversão Hexadecimal para Decimal
+            idHEX = txtHEX.Text;
+            idDEC = Convert.ToInt64(idHEX, 16);
 
-            Terminar_button_Click(sender, e);
-            Iniciar_button_Click(sender, e);
+            lblDEC.Text = Convert.ToString(idDEC);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        public void readCard()
+        {
+            // criação da instância para a thread
+            Thread readThread = new Thread(readCard);
+
+            try
+            {
+                if (_serialPort.IsOpen)
+                {
+                    if (_continue == true)
+                    {
+                        string message = _serialPort.ReadLine();
+                        message = message.Substring(1); // remove o primeiro char
+                        message = message.Remove(10, 1); // a partir da posição 10, remove 1 char
+                        txtHEX.Text = message;
+                        HexToDec();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Porta serial fechada.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void Iniciar_button_Click(object sender, EventArgs e)
+        {
+            lblOpenClosed.Text = "Aberta";
+            lblOpenClosed.ForeColor = Color.Green;
+
+            _serialPort.Open();
+            _continue = true;
+            readCard();
+        }
+
+        public void Terminar_button_Click(object sender, EventArgs e)
+        {
+            lblOpenClosed.Text = "Fechada";
+            lblOpenClosed.ForeColor = Color.Red;
+
+            _serialPort.Close();
+            _continue = false;
+        }
+
+        public void btnGuardar_Click(object sender, EventArgs e)
         {
             // verifica se o hex foi convertido
             if (lblDEC.Text != "")
             {
                 // guarda os dados da lblDEC no ficheiro txt
                 StreamWriter txt = File.AppendText(caminho);
-                txt.WriteLine("ID: " + lblDEC.Text + "\r\n" + DateTime.UtcNow.ToString() + "\r\n");
+                txt.WriteLine("ID: " + lblDEC.Text + "\r\n" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + "\r\n");
                 txt.Close();
 
                 // messagebox de informação para o ficheiro guardado
@@ -82,81 +130,20 @@ namespace Conversor_Cartão
                 MessageBox.Show("Hexadecimal não convertido.", "ERRO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
-        private void Iniciar_button_Click(object sender, EventArgs e)
+
+        public void btnLimpar_Click(object sender, EventArgs e)
         {
-            lblOpenClosed.Text = "Aberta";
-            lblOpenClosed.ForeColor = Color.Green;
+            // repõe todos os campos
+            txtHEX.Text = "";
+            lblDEC.Text = "";
 
-            _serialPort.Open();
-            _continue = true;
-            readCard();
-        }
-
-        private void Terminar_button_Click(object sender, EventArgs e)
-        {
-            lblOpenClosed.Text = "Fechada";
-            lblOpenClosed.ForeColor = Color.Red;
-
+            // reinicia as portas
             _serialPort.Close();
             _continue = false;
+            _serialPort.Open();
+            _continue = true;
+
+            readCard();
         }
-
-        private void readCard()
-        {
-            Thread readThread = new Thread(readCard);
-
-            try
-            {
-                if (!_serialPort.IsOpen)
-                {
-                    MessageBox.Show("Porta serial fechada!");
-                }
-
-                else if (_serialPort.IsOpen)
-                {
-                    if (_continue == true)
-                    {
-                        string message = _serialPort.ReadLine();
-                        message = message.Substring(1); // remove o primeiro char
-                        message = message.Remove(10, 1); // a partir da posição 10, remove 1 char
-                        txtHEX.Text = message;
-                        Console.WriteLine(message);
-                        HexToDec();
-                    }
-                    else
-                    {
-                        _serialPort.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void HexToDec()
-        {
-            idHEX = txtHEX.Text;
-            idDEC = Convert.ToInt64(idHEX, 16);
-
-            lblDEC.Text = Convert.ToString(idDEC);
-        }
-
-        /*public void OpenClosed()
-        {
-            if (_serialPort.IsOpen)
-            {
-                lblOpenClosed.Text = "Aberta";
-                lblOpenClosed.ForeColor = Color.Green;
-            }
-
-            else if (!_serialPort.IsOpen)
-            {
-                lblOpenClosed.Text = "Fechada";
-                lblOpenClosed.ForeColor = Color.Red;
-            }
-        }*/
     }
 }

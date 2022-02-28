@@ -46,7 +46,7 @@
             // txtHEX
             // 
             this.txtHEX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHEX.Location = new System.Drawing.Point(90, 179);
+            this.txtHEX.Location = new System.Drawing.Point(94, 179);
             this.txtHEX.Name = "txtHEX";
             this.txtHEX.Size = new System.Drawing.Size(264, 22);
             this.txtHEX.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(87, 160);
+            this.label1.Location = new System.Drawing.Point(91, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(87, 244);
+            this.label2.Location = new System.Drawing.Point(91, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 3;
@@ -74,7 +74,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(270, 290);
+            this.btnLimpar.Location = new System.Drawing.Point(274, 290);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(84, 35);
             this.btnLimpar.TabIndex = 5;
@@ -86,7 +86,7 @@
             // 
             this.lblDEC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDEC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDEC.Location = new System.Drawing.Point(90, 264);
+            this.lblDEC.Location = new System.Drawing.Point(94, 264);
             this.lblDEC.Name = "lblDEC";
             this.lblDEC.Size = new System.Drawing.Size(264, 23);
             this.lblDEC.TabIndex = 6;
@@ -94,7 +94,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(90, 290);
+            this.btnGuardar.Location = new System.Drawing.Point(94, 290);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 35);
             this.btnGuardar.TabIndex = 7;
@@ -106,7 +106,7 @@
             // 
             this.PortaCom_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortaCom_comboBox.FormattingEnabled = true;
-            this.PortaCom_comboBox.Location = new System.Drawing.Point(92, 39);
+            this.PortaCom_comboBox.Location = new System.Drawing.Point(92, 31);
             this.PortaCom_comboBox.Name = "PortaCom_comboBox";
             this.PortaCom_comboBox.Size = new System.Drawing.Size(160, 24);
             this.PortaCom_comboBox.TabIndex = 8;
@@ -117,14 +117,14 @@
             this.BaudRate_comboBox.FormattingEnabled = true;
             this.BaudRate_comboBox.Items.AddRange(new object[] {
             "9600"});
-            this.BaudRate_comboBox.Location = new System.Drawing.Point(92, 69);
+            this.BaudRate_comboBox.Location = new System.Drawing.Point(92, 61);
             this.BaudRate_comboBox.Name = "BaudRate_comboBox";
             this.BaudRate_comboBox.Size = new System.Drawing.Size(117, 24);
             this.BaudRate_comboBox.TabIndex = 9;
             // 
             // Iniciar_button
             // 
-            this.Iniciar_button.Location = new System.Drawing.Point(270, 36);
+            this.Iniciar_button.Location = new System.Drawing.Point(270, 28);
             this.Iniciar_button.Name = "Iniciar_button";
             this.Iniciar_button.Size = new System.Drawing.Size(84, 31);
             this.Iniciar_button.TabIndex = 10;
@@ -134,7 +134,7 @@
             // 
             // Terminar_button
             // 
-            this.Terminar_button.Location = new System.Drawing.Point(360, 36);
+            this.Terminar_button.Location = new System.Drawing.Point(360, 28);
             this.Terminar_button.Name = "Terminar_button";
             this.Terminar_button.Size = new System.Drawing.Size(84, 32);
             this.Terminar_button.TabIndex = 11;
@@ -146,7 +146,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 42);
+            this.label3.Location = new System.Drawing.Point(13, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 12;
@@ -156,7 +156,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 72);
+            this.label4.Location = new System.Drawing.Point(13, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 13;
@@ -167,7 +167,7 @@
             this.lblOpenClosed.AutoSize = true;
             this.lblOpenClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpenClosed.ForeColor = System.Drawing.Color.Red;
-            this.lblOpenClosed.Location = new System.Drawing.Point(327, 77);
+            this.lblOpenClosed.Location = new System.Drawing.Point(327, 69);
             this.lblOpenClosed.Name = "lblOpenClosed";
             this.lblOpenClosed.Size = new System.Drawing.Size(61, 16);
             this.lblOpenClosed.TabIndex = 14;
