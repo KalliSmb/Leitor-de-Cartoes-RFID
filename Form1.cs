@@ -26,10 +26,6 @@ namespace Conversor_Cartão
         bool _continue;
         SerialPort _serialPort;
 
-        /* variável que armazena o nome do ficheiro
-           o ficheiro será criado na pasta de inicialização "bin/debug" */
-        string caminho = Application.StartupPath + "ID_Cartões.txt";
-
         public void Form1_Load(object sender, EventArgs e)
         {
             lblOpenClosed.Text = "Fechada";
@@ -113,6 +109,10 @@ namespace Conversor_Cartão
 
         public void btnGuardar_Click(object sender, EventArgs e)
         {
+            /* variável que armazena o nome do ficheiro
+               o ficheiro será criado na pasta de inicialização */
+            string caminho = Application.StartupPath + "ID_Cartões.txt";
+
             // verifica se o hex foi convertido
             if (lblDEC.Text != "")
             {
@@ -143,7 +143,7 @@ namespace Conversor_Cartão
             _serialPort.Open();
             _continue = true;
 
-            readCard();
+            readCard();//
         }
     }
 }

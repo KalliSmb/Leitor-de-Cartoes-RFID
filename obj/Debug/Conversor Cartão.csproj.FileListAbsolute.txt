@@ -1,0 +1,25 @@
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\Conversor Cartão.exe.config
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\Conversor Cartão.exe
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\Conversor Cartão.pdb
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Buffers.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Memory.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\WSCT.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\WSCT.Helpers.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\WSCT.Wrapper.WinSCard.dll
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Buffers.xml
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Memory.xml
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kayro\vs projects\Conversor Cartão\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.csproj.AssemblyReference.cache
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.csproj.SuggestedBindingRedirects.cache
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor_Cartão.Form1.resources
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor_Cartão.Properties.Resources.resources
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.csproj.GenerateResource.cache
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.csproj.CoreCompileInputs.cache
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.csproj.CopyComplete
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.exe
+C:\Users\kayro\vs projects\Conversor Cartão\obj\Debug\Conversor Cartão.pdb
