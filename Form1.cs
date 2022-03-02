@@ -23,6 +23,7 @@ namespace Conversor_Cartão
         // variáveis global
         string idHEX;
         long idDEC;
+        int ctd = 1;
         bool _continue;
         SerialPort _serialPort;
 
@@ -59,10 +60,10 @@ namespace Conversor_Cartão
             lblDEC.Text = Convert.ToString(idDEC);
         }
 
-        public void readCard()
+        public void ReadCard()
         {
             // criação da instância para a thread
-            Thread readThread = new Thread(readCard);
+            Thread readThread = new Thread(ReadCard);
 
             try
             {
@@ -97,7 +98,8 @@ namespace Conversor_Cartão
 
             _serialPort.Open();
             _continue = true;
-            readCard();
+
+            ReadCard();
         }
 
         private void btnFecharCOM_Click(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace Conversor_Cartão
 
             // guarda os dados da lblDEC no ficheiro txt
             StreamWriter txt = File.AppendText(caminho);
-            txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
+            txt.WriteLine(ctd++ + " " + lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
             txt.Close();
 
             // messagebox de informação para o ficheiro guardado
@@ -139,7 +141,7 @@ namespace Conversor_Cartão
             _serialPort.Open();
             _continue = true;
 
-            readCard();
+            ReadCard();
         }
     }
 }
