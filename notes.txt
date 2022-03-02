@@ -1,0 +1,9 @@
+- Adicionar função de escolher caminho ao clickar no botão Guardar;
+
+- Adicionar mais dois botões: um para "ler sequêncial" que ao clickar ele ler e automaticamente guarda no ficheiro sempre que passar o cartão no leitor, e outro para "parar sequêncial" que ao clickar ele para de ler sempre (talvez utilizar listbox ao invés de textbox);
+
+- Mudar icon;
+
+- Adicionar botão de copiar ID;
+
+- Adicionar um contador para cada cartão lido.

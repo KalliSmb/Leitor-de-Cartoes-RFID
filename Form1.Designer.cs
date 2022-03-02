@@ -36,17 +36,19 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.PortaCom_comboBox = new System.Windows.Forms.ComboBox();
             this.BaudRate_comboBox = new System.Windows.Forms.ComboBox();
-            this.Iniciar_button = new System.Windows.Forms.Button();
-            this.Terminar_button = new System.Windows.Forms.Button();
+            this.btnAbrirCOM = new System.Windows.Forms.Button();
+            this.btnFecharCOM = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblOpenClosed = new System.Windows.Forms.Label();
+            this.btnSequencialStart = new System.Windows.Forms.Button();
+            this.btnSequencialStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHEX
             // 
             this.txtHEX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHEX.Location = new System.Drawing.Point(94, 179);
+            this.txtHEX.Location = new System.Drawing.Point(94, 150);
             this.txtHEX.Name = "txtHEX";
             this.txtHEX.ReadOnly = true;
             this.txtHEX.Size = new System.Drawing.Size(264, 22);
@@ -56,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 160);
+            this.label1.Location = new System.Drawing.Point(91, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 244);
+            this.label2.Location = new System.Drawing.Point(91, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 3;
@@ -75,7 +77,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(274, 290);
+            this.btnLimpar.Location = new System.Drawing.Point(274, 261);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(84, 35);
             this.btnLimpar.TabIndex = 5;
@@ -87,7 +89,7 @@
             // 
             this.lblDEC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDEC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDEC.Location = new System.Drawing.Point(94, 264);
+            this.lblDEC.Location = new System.Drawing.Point(94, 235);
             this.lblDEC.Name = "lblDEC";
             this.lblDEC.Size = new System.Drawing.Size(264, 23);
             this.lblDEC.TabIndex = 6;
@@ -95,7 +97,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(94, 290);
+            this.btnGuardar.Location = new System.Drawing.Point(94, 261);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 35);
             this.btnGuardar.TabIndex = 7;
@@ -123,27 +125,27 @@
             this.BaudRate_comboBox.Size = new System.Drawing.Size(117, 24);
             this.BaudRate_comboBox.TabIndex = 9;
             // 
-            // Iniciar_button
+            // btnAbrirCOM
             // 
-            this.Iniciar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iniciar_button.Location = new System.Drawing.Point(270, 28);
-            this.Iniciar_button.Name = "Iniciar_button";
-            this.Iniciar_button.Size = new System.Drawing.Size(84, 31);
-            this.Iniciar_button.TabIndex = 10;
-            this.Iniciar_button.Text = "Abrir COM";
-            this.Iniciar_button.UseVisualStyleBackColor = true;
-            this.Iniciar_button.Click += new System.EventHandler(this.Iniciar_button_Click);
+            this.btnAbrirCOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirCOM.Location = new System.Drawing.Point(270, 28);
+            this.btnAbrirCOM.Name = "btnAbrirCOM";
+            this.btnAbrirCOM.Size = new System.Drawing.Size(84, 31);
+            this.btnAbrirCOM.TabIndex = 10;
+            this.btnAbrirCOM.Text = "Abrir COM";
+            this.btnAbrirCOM.UseVisualStyleBackColor = true;
+            this.btnAbrirCOM.Click += new System.EventHandler(this.btnAbrirCOM_Click);
             // 
-            // Terminar_button
+            // btnFecharCOM
             // 
-            this.Terminar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terminar_button.Location = new System.Drawing.Point(360, 28);
-            this.Terminar_button.Name = "Terminar_button";
-            this.Terminar_button.Size = new System.Drawing.Size(84, 32);
-            this.Terminar_button.TabIndex = 11;
-            this.Terminar_button.Text = "Fechar COM";
-            this.Terminar_button.UseVisualStyleBackColor = true;
-            this.Terminar_button.Click += new System.EventHandler(this.Terminar_button_Click);
+            this.btnFecharCOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCOM.Location = new System.Drawing.Point(360, 28);
+            this.btnFecharCOM.Name = "btnFecharCOM";
+            this.btnFecharCOM.Size = new System.Drawing.Size(84, 32);
+            this.btnFecharCOM.TabIndex = 11;
+            this.btnFecharCOM.Text = "Fechar COM";
+            this.btnFecharCOM.UseVisualStyleBackColor = true;
+            this.btnFecharCOM.Click += new System.EventHandler(this.btnFecharCOM_Click);
             // 
             // label3
             // 
@@ -176,16 +178,40 @@
             this.lblOpenClosed.TabIndex = 14;
             this.lblOpenClosed.Text = "Fechada";
             // 
+            // btnSequencialStart
+            // 
+            this.btnSequencialStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSequencialStart.Location = new System.Drawing.Point(94, 302);
+            this.btnSequencialStart.Name = "btnSequencialStart";
+            this.btnSequencialStart.Size = new System.Drawing.Size(131, 35);
+            this.btnSequencialStart.TabIndex = 15;
+            this.btnSequencialStart.Text = "Ler Sequêncial";
+            this.btnSequencialStart.UseVisualStyleBackColor = true;
+            this.btnSequencialStart.Click += new System.EventHandler(this.btnSequencialStart_Click);
+            // 
+            // btnSequencialStop
+            // 
+            this.btnSequencialStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSequencialStop.Location = new System.Drawing.Point(227, 302);
+            this.btnSequencialStop.Name = "btnSequencialStop";
+            this.btnSequencialStop.Size = new System.Drawing.Size(131, 35);
+            this.btnSequencialStop.TabIndex = 16;
+            this.btnSequencialStop.Text = "Parar Sequêncial";
+            this.btnSequencialStop.UseVisualStyleBackColor = true;
+            this.btnSequencialStop.Click += new System.EventHandler(this.btnSequencialStop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 357);
+            this.Controls.Add(this.btnSequencialStop);
+            this.Controls.Add(this.btnSequencialStart);
             this.Controls.Add(this.lblOpenClosed);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Terminar_button);
-            this.Controls.Add(this.Iniciar_button);
+            this.Controls.Add(this.btnFecharCOM);
+            this.Controls.Add(this.btnAbrirCOM);
             this.Controls.Add(this.BaudRate_comboBox);
             this.Controls.Add(this.PortaCom_comboBox);
             this.Controls.Add(this.btnGuardar);
@@ -197,7 +223,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Conversor";
+            this.Text = "Leitor e Conversor RFID";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,11 +240,13 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox PortaCom_comboBox;
         private System.Windows.Forms.ComboBox BaudRate_comboBox;
-        private System.Windows.Forms.Button Iniciar_button;
-        private System.Windows.Forms.Button Terminar_button;
+        private System.Windows.Forms.Button btnAbrirCOM;
+        private System.Windows.Forms.Button btnFecharCOM;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblOpenClosed;
+        private System.Windows.Forms.Button btnSequencialStart;
+        private System.Windows.Forms.Button btnSequencialStop;
     }
 }
 

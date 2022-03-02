@@ -88,7 +88,7 @@ namespace Conversor_Cartão
             }
         }
 
-        public void Iniciar_button_Click(object sender, EventArgs e)
+        private void btnAbrirCOM_Click(object sender, EventArgs e)
         {
             lblOpenClosed.Text = "Aberta";
             lblOpenClosed.ForeColor = Color.Green;
@@ -98,7 +98,7 @@ namespace Conversor_Cartão
             readCard();
         }
 
-        public void Terminar_button_Click(object sender, EventArgs e)
+        private void btnFecharCOM_Click(object sender, EventArgs e)
         {
             lblOpenClosed.Text = "Fechada";
             lblOpenClosed.ForeColor = Color.Red;
@@ -118,7 +118,7 @@ namespace Conversor_Cartão
             {
                 // guarda os dados da lblDEC no ficheiro txt
                 StreamWriter txt = File.AppendText(caminho);
-                txt.WriteLine("ID: " + lblDEC.Text + "\r\n" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + "\r\n");
+                txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
                 txt.Close();
 
                 // messagebox de informação para o ficheiro guardado
@@ -144,6 +144,25 @@ namespace Conversor_Cartão
             _continue = true;
 
             readCard();
+        }
+
+        private void btnSequencialStart_Click(object sender, EventArgs e)
+        {
+            btnAbrirCOM_Click(sender, e);
+
+            while (lblOpenClosed.Text == "Aberta")
+            {
+                if (lblDEC.Text != "")
+                {
+                    btnGuardar_Click(sender, e);
+                    btnLimpar_Click(sender, e);
+                }
+            }
+        }
+
+        private void btnSequencialStop_Click(object sender, EventArgs e)
+        {
+            btnFecharCOM_Click(sender, e);
         }
     }
 }
