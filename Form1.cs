@@ -122,7 +122,7 @@ namespace Conversor_Cartão
 
             // guarda os dados da lblDEC no ficheiro txt
             StreamWriter txt = File.AppendText(caminho);
-            txt.WriteLine(ctd++ + " " + lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
+            txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
             txt.Close();
         }
 
