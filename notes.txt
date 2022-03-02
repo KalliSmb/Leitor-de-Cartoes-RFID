@@ -1,5 +1,1 @@
 - Adicionar função de escolher caminho ao clickar no botão Guardar;
-
-- Mudar icon;
-
-- Adicionar botão de copiar ID;

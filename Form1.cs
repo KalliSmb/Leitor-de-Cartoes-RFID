@@ -23,7 +23,6 @@ namespace Conversor_Cartão
         // variáveis global
         string idHEX;
         long idDEC;
-        int ctd = 1;
         bool _continue;
         SerialPort _serialPort;
 
@@ -139,6 +138,11 @@ namespace Conversor_Cartão
             _continue = true;
 
             ReadCard();
+        }
+
+        private void btnCopiar_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblDEC.Text);
         }
     }
 }

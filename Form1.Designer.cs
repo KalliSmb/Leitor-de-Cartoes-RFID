@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblOpenClosed = new System.Windows.Forms.Label();
+            this.btnCopiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHEX
@@ -164,11 +165,23 @@
             this.lblOpenClosed.TabIndex = 14;
             this.lblOpenClosed.Text = "Fechada";
             // 
+            // btnCopiar
+            // 
+            this.btnCopiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopiar.Location = new System.Drawing.Point(94, 286);
+            this.btnCopiar.Name = "btnCopiar";
+            this.btnCopiar.Size = new System.Drawing.Size(84, 35);
+            this.btnCopiar.TabIndex = 15;
+            this.btnCopiar.Text = "Copiar";
+            this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 357);
+            this.Controls.Add(this.btnCopiar);
             this.Controls.Add(this.lblOpenClosed);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -205,6 +218,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblOpenClosed;
+        private System.Windows.Forms.Button btnCopiar;
     }
 }
 
