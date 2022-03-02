@@ -124,9 +124,6 @@ namespace Conversor_Cartão
             StreamWriter txt = File.AppendText(caminho);
             txt.WriteLine(ctd++ + " " + lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
             txt.Close();
-
-            // messagebox de informação para o ficheiro guardado
-            MessageBox.Show("Ficheiro guardado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void btnLimpar_Click(object sender, EventArgs e)
