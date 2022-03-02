@@ -86,6 +86,8 @@ namespace Conversor_Cartão
             {
                 MessageBox.Show(ex.Message);
             }
+
+            Guardar();
         }
 
         private void btnAbrirCOM_Click(object sender, EventArgs e)
@@ -105,30 +107,24 @@ namespace Conversor_Cartão
 
             _serialPort.Close();
             _continue = false;
+
+            txtHEX.Text = "";
+            lblDEC.Text = "";
         }
 
-        public void btnGuardar_Click(object sender, EventArgs e)
+        public void Guardar()
         {
             /* variável que armazena o nome do ficheiro
                o ficheiro será criado na pasta de inicialização */
             string caminho = Application.StartupPath + "ID_Cartões.txt";
 
-            // verifica se o hex foi convertido
-            if (lblDEC.Text != "")
-            {
-                // guarda os dados da lblDEC no ficheiro txt
-                StreamWriter txt = File.AppendText(caminho);
-                txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
-                txt.Close();
+            // guarda os dados da lblDEC no ficheiro txt
+            StreamWriter txt = File.AppendText(caminho);
+            txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
+            txt.Close();
 
-                // messagebox de informação para o ficheiro guardado
-                MessageBox.Show("Ficheiro guardado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                // messagebox de aviso para o campo não preenchido
-                MessageBox.Show("Hexadecimal não convertido.", "ERRO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // messagebox de informação para o ficheiro guardado
+            MessageBox.Show("Ficheiro guardado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void btnLimpar_Click(object sender, EventArgs e)
@@ -144,25 +140,6 @@ namespace Conversor_Cartão
             _continue = true;
 
             readCard();
-        }
-
-        private void btnSequencialStart_Click(object sender, EventArgs e)
-        {
-            btnAbrirCOM_Click(sender, e);
-
-            while (lblOpenClosed.Text == "Aberta")
-            {
-                if (lblDEC.Text != "")
-                {
-                    btnGuardar_Click(sender, e);
-                    btnLimpar_Click(sender, e);
-                }
-            }
-        }
-
-        private void btnSequencialStop_Click(object sender, EventArgs e)
-        {
-            btnFecharCOM_Click(sender, e);
         }
     }
 }
