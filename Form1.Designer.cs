@@ -40,13 +40,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblOpenClosed = new System.Windows.Forms.Label();
-            this.btnCopiar = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHEX
             // 
             this.txtHEX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHEX.Location = new System.Drawing.Point(94, 175);
+            this.txtHEX.Location = new System.Drawing.Point(102, 137);
             this.txtHEX.Name = "txtHEX";
             this.txtHEX.ReadOnly = true;
             this.txtHEX.Size = new System.Drawing.Size(264, 22);
@@ -56,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 156);
+            this.label1.Location = new System.Drawing.Point(9, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 240);
+            this.label2.Location = new System.Drawing.Point(38, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 3;
@@ -75,9 +77,9 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(274, 286);
+            this.btnLimpar.Location = new System.Drawing.Point(282, 314);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(84, 35);
+            this.btnLimpar.Size = new System.Drawing.Size(84, 23);
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -87,7 +89,7 @@
             // 
             this.lblDEC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDEC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDEC.Location = new System.Drawing.Point(94, 260);
+            this.lblDEC.Location = new System.Drawing.Point(102, 169);
             this.lblDEC.Name = "lblDEC";
             this.lblDEC.Size = new System.Drawing.Size(264, 23);
             this.lblDEC.TabIndex = 6;
@@ -98,7 +100,7 @@
             this.PortaCom_comboBox.FormattingEnabled = true;
             this.PortaCom_comboBox.Location = new System.Drawing.Point(92, 31);
             this.PortaCom_comboBox.Name = "PortaCom_comboBox";
-            this.PortaCom_comboBox.Size = new System.Drawing.Size(160, 24);
+            this.PortaCom_comboBox.Size = new System.Drawing.Size(84, 24);
             this.PortaCom_comboBox.TabIndex = 8;
             // 
             // BaudRate_comboBox
@@ -109,13 +111,13 @@
             "9600"});
             this.BaudRate_comboBox.Location = new System.Drawing.Point(92, 61);
             this.BaudRate_comboBox.Name = "BaudRate_comboBox";
-            this.BaudRate_comboBox.Size = new System.Drawing.Size(117, 24);
+            this.BaudRate_comboBox.Size = new System.Drawing.Size(84, 24);
             this.BaudRate_comboBox.TabIndex = 9;
             // 
             // btnAbrirCOM
             // 
             this.btnAbrirCOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCOM.Location = new System.Drawing.Point(270, 28);
+            this.btnAbrirCOM.Location = new System.Drawing.Point(282, 26);
             this.btnAbrirCOM.Name = "btnAbrirCOM";
             this.btnAbrirCOM.Size = new System.Drawing.Size(84, 31);
             this.btnAbrirCOM.TabIndex = 10;
@@ -126,7 +128,7 @@
             // btnFecharCOM
             // 
             this.btnFecharCOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFecharCOM.Location = new System.Drawing.Point(360, 28);
+            this.btnFecharCOM.Location = new System.Drawing.Point(282, 65);
             this.btnFecharCOM.Name = "btnFecharCOM";
             this.btnFecharCOM.Size = new System.Drawing.Size(84, 32);
             this.btnFecharCOM.TabIndex = 11;
@@ -159,29 +161,41 @@
             this.lblOpenClosed.AutoSize = true;
             this.lblOpenClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOpenClosed.ForeColor = System.Drawing.Color.Red;
-            this.lblOpenClosed.Location = new System.Drawing.Point(327, 69);
+            this.lblOpenClosed.Location = new System.Drawing.Point(182, 34);
             this.lblOpenClosed.Name = "lblOpenClosed";
             this.lblOpenClosed.Size = new System.Drawing.Size(61, 16);
             this.lblOpenClosed.TabIndex = 14;
             this.lblOpenClosed.Text = "Fechada";
             // 
-            // btnCopiar
+            // listBox1
             // 
-            this.btnCopiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopiar.Location = new System.Drawing.Point(94, 286);
-            this.btnCopiar.Name = "btnCopiar";
-            this.btnCopiar.Size = new System.Drawing.Size(84, 35);
-            this.btnCopiar.TabIndex = 15;
-            this.btnCopiar.Text = "Copiar";
-            this.btnCopiar.UseVisualStyleBackColor = true;
-            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(102, 211);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBox1.Size = new System.Drawing.Size(264, 84);
+            this.listBox1.TabIndex = 15;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(102, 314);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(84, 23);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 357);
-            this.Controls.Add(this.btnCopiar);
+            this.ClientSize = new System.Drawing.Size(378, 357);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblOpenClosed);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -218,7 +232,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblOpenClosed;
-        private System.Windows.Forms.Button btnCopiar;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
 

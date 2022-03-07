@@ -1,1 +1,0 @@
-- Adicionar função de escolher caminho ao clickar no botão Guardar;

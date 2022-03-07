@@ -21,9 +21,7 @@ namespace Conversor_Cartão
         }
 
         // variáveis global
-        string idHEX;
         long idDEC;
-        bool _continue;
         SerialPort _serialPort;
 
         public void Form1_Load(object sender, EventArgs e)
@@ -31,7 +29,7 @@ namespace Conversor_Cartão
             lblOpenClosed.Text = "Fechada";
             lblOpenClosed.ForeColor = Color.Red;
 
-            // criação da instância para a serial port
+            // criação da instância para a porta serial
             _serialPort = new SerialPort();
 
             // introduzir portas com e baud rate nas combo box
@@ -48,46 +46,40 @@ namespace Conversor_Cartão
                     _serialPort.PortName = PortaCom_comboBox.Text;
                 }
             };
+
+            _serialPort.DataReceived += _serialPort_DataReceived;
+
+            btnAbrirCOM.PerformClick(); // faz um click no botão abrir com
         }
 
-        public void HexToDec()
+        private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            Thread.Sleep(1000); // método para esperar o programa receber o código lido antes de escrevê-lo
+
+            // lê o código e guarda numa variável
+            string message = _serialPort.ReadLine();
+            _serialPort.DiscardInBuffer();
+
+            // remove os caracteres indesejados
+            message = message.Substring(1);
+            message = message.Replace("\r", string.Empty);
+
+            Invoke(new Action(() =>
+            {
+                txtHEX.Text = message;
+                HexToDec(message);
+            }));
+
+        }
+
+        public void HexToDec(string hexCode)
         {
             // conversão Hexadecimal para Decimal
-            idHEX = txtHEX.Text;
-            idDEC = Convert.ToInt64(idHEX, 16);
+            idDEC = Convert.ToInt64(hexCode, 16);
 
-            lblDEC.Text = Convert.ToString(idDEC);
-        }
-
-        public void ReadCard()
-        {
-            // criação da instância para a thread
-            Thread readThread = new Thread(ReadCard);
-
-            try
-            {
-                if (_serialPort.IsOpen)
-                {
-                    if (_continue == true)
-                    {
-                        string message = _serialPort.ReadLine();
-                        message = message.Substring(1); // remove o primeiro char
-                        message = message.Remove(10, 1); // a partir da posição 10, remove 1 char
-                        txtHEX.Text = message;
-                        HexToDec();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Porta serial fechada.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            Guardar();
+            var decCode = Convert.ToString(idDEC);
+            lblDEC.Text = decCode;
+            listBox1.Items.Add(decCode);
         }
 
         private void btnAbrirCOM_Click(object sender, EventArgs e)
@@ -96,9 +88,6 @@ namespace Conversor_Cartão
             lblOpenClosed.ForeColor = Color.Green;
 
             _serialPort.Open();
-            _continue = true;
-
-            ReadCard();
         }
 
         private void btnFecharCOM_Click(object sender, EventArgs e)
@@ -107,42 +96,34 @@ namespace Conversor_Cartão
             lblOpenClosed.ForeColor = Color.Red;
 
             _serialPort.Close();
-            _continue = false;
 
             txtHEX.Text = "";
             lblDEC.Text = "";
-        }
-
-        public void Guardar()
-        {
-            /* variável que armazena o nome do ficheiro
-               o ficheiro será criado na pasta de inicialização */
-            string caminho = Application.StartupPath + "ID_Cartões.txt";
-
-            // guarda os dados da lblDEC no ficheiro txt
-            StreamWriter txt = File.AppendText(caminho);
-            txt.WriteLine(lblDEC.Text + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"));
-            txt.Close();
         }
 
         public void btnLimpar_Click(object sender, EventArgs e)
         {
-            // repõe todos os campos
             txtHEX.Text = "";
             lblDEC.Text = "";
-
-            // reinicia as portas
-            _serialPort.Close();
-            _continue = false;
-            _serialPort.Open();
-            _continue = true;
-
-            ReadCard();
+            listBox1.Items.Clear();
         }
 
-        private void btnCopiar_Click(object sender, EventArgs e)
+        public void btnGuardar_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(lblDEC.Text);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog(); // criação da instância para guardar o ficheiro
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.FileName = "IDs_Cartões";
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) // dialog para escolher o caminho do ficheiro
+            {
+                // ciclo para percorrer e escrever todos os itens da listbox
+                foreach (var item in listBox1.Items)
+                {
+                    File.AppendAllLines(saveFileDialog1.FileName, new string[] { item.ToString() + " " + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") });
+                }
+            }
         }
     }
 }
